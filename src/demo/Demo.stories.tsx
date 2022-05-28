@@ -11,6 +11,10 @@ export default {
 const Template: ComponentStory<typeof Demo> = (args: any) => <Demo {...args} />
 
 export const Primary = Template.bind({})
+
+Primary.args = {
+  children: 'Children text'
+}
 /* Primary.parameters = {
   backgrounds: { default: 'dark' }
 }
