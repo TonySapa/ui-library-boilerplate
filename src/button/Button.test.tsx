@@ -38,7 +38,7 @@ describe('Button', () => {
     expect(DangerButton.getAttribute('class')).toMatch(/danger/gi)
   })
 
-  test('Styles are customized if wrapped by theme Provider', () => {
+  test('Styles are customized if wrapped by JSS ThemeProvider', () => {
     const customTheme = {
       default_container: {
         background: 'lime',

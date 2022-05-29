@@ -10,15 +10,17 @@ export default {
 } as ComponentMeta<typeof Button>
 
 const customTheme = {
-  default_container: {
-    background: 'lime',
-    border: 'green',
-    borderRadius: '4px',
-    padding: '20px'
-  },
-  default_label: {
-    color: 'white',
-    fontSize: '20px'
+  Button: {
+    default_container: {
+      background: 'lime',
+      border: 'green',
+      borderRadius: '4px',
+      padding: '20px'
+    },
+    default_label: {
+      color: 'white',
+      fontSize: '20px'
+    }  
   }
 }
 

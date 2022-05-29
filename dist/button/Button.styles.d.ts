@@ -111,6 +111,6 @@ export declare const styles: {
         letterSpacing: string;
     };
 };
-export declare const useStyles: (data?: {
+export declare const useStyles: (data?: (((value: string[], index: number, array: string[][]) => unknown) & {
     theme?: Jss.Theme | undefined;
-} | undefined) => import("jss").Classes<"default_container" | "default_label" | "primary_container" | "primary_label" | "success_container" | "success_label" | "danger_container" | "danger_label">;
+}) | undefined) => import("jss").Classes<"default_container" | "default_label" | "primary_container" | "primary_label" | "success_container" | "success_label" | "danger_container" | "danger_label">;

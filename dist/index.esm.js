@@ -1,5 +1,5 @@
 import React from 'react';
-import { createUseStyles } from 'react-jss';
+import { createUseStyles, ThemeProvider } from 'react-jss';
 
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -119,8 +119,8 @@ var hexToRGB = function (hex, opacity) {
 };
 
 var primaryShadow = hexToRGB(primary, 0.25);
-var successShadow = hexToRGB(success, 0.25);
-var dangerShadow = hexToRGB(danger, 0.25);
+var successShadow$1 = hexToRGB(success, 0.25);
+var dangerShadow$1 = hexToRGB(danger, 0.25);
 var blackShadow = hexToRGB(black, 0.05);
 var commonStyles = {
     container: __assign(__assign({}, inputGlobalStyles.container), { cursor: 'pointer' }),
@@ -147,30 +147,88 @@ var styles = {
             boxShadow: "0px 0px 7px 8px ".concat(primaryShadow)
         } }),
     primary_label: __assign(__assign({}, commonStyles.label), { color: 'white' }),
-    success_container: __assign(__assign({}, commonStyles.container), { background: '#55E47F', boxShadow: "0px 4px 10px 3px ".concat(successShadow), transition: [['background', '300ms'], ['width', '300ms']], '&:hover': {
+    success_container: __assign(__assign({}, commonStyles.container), { background: '#55E47F', boxShadow: "0px 4px 10px 3px ".concat(successShadow$1), transition: [['background', '300ms'], ['width', '300ms']], '&:hover': {
             background: shadeColor(success, 1.2)
         }, '&:active': {
-            boxShadow: "0px 0px 7px 8px ".concat(successShadow)
+            boxShadow: "0px 0px 7px 8px ".concat(successShadow$1)
         }, '&:focus': {
-            boxShadow: "0px 0px 7px 8px ".concat(successShadow)
+            boxShadow: "0px 0px 7px 8px ".concat(successShadow$1)
         } }),
     success_label: __assign(__assign({}, commonStyles.label), { color: 'white' }),
-    danger_container: __assign(__assign({}, commonStyles.container), { background: danger, boxShadow: "0px 4px 10px 3px ".concat(dangerShadow), transition: [['background', '300ms'], ['width', '300ms']], '&:hover': {
+    danger_container: __assign(__assign({}, commonStyles.container), { background: danger, boxShadow: "0px 4px 10px 3px ".concat(dangerShadow$1), transition: [['background', '300ms'], ['width', '300ms']], '&:hover': {
             background: shadeColor(danger, 1.2)
         }, '&:active': {
-            boxShadow: "0px 0px 7px 8px ".concat(dangerShadow)
+            boxShadow: "0px 0px 7px 8px ".concat(dangerShadow$1)
         }, '&:focus': {
-            boxShadow: "0px 0px 7px 8px ".concat(dangerShadow)
+            boxShadow: "0px 0px 7px 8px ".concat(dangerShadow$1)
         } }),
     danger_label: __assign(__assign({}, commonStyles.label), { color: 'white' })
 };
-var useStyles = createUseStyles(styles);
+var useStyles = createUseStyles(function (theme) { return (__assign(__assign({}, styles), theme.Button)); });
 
 var Button = function (_a) {
-    var _b = _a.appearance, appearance = _b === void 0 ? 'default' : _b, children = _a.children;
+    var _b = _a.appearance, appearance = _b === void 0 ? 'default' : _b, children = _a.children, onClick = _a.onClick;
     var classes = useStyles();
-    return (React.createElement("button", { className: classes["".concat(appearance, "_container")] },
+    return (React.createElement("button", { onClick: onClick, className: classes["".concat(appearance, "_container")] },
         React.createElement("span", { className: classes["".concat(appearance, "_label")] }, children)));
 };
 
-export { Button };
+/******************************************************************************
+ * Wraps children elements and styles them with the theme passed as prop.
+ * @param {Theme} theme object containing the styles.
+ * @param {ReactNode} children JSX elements to be styled with context.
+ * @returns {React.FC} Wrapper with theme containing styles as a Context.
+ *****************************************************************************/
+var SoraTheme = function (_a) {
+    var children = _a.children, theme = _a.theme;
+    return (React.createElement(ThemeProvider, { theme: theme }, children));
+};
+
+var successShadow = hexToRGB(success, 0.25);
+var dangerShadow = hexToRGB(danger, 0.25);
+var blackTint = hexToRGB(black, 1.05);
+var darkDefault = {
+    Button: {
+        default_container: __assign(__assign({}, inputGlobalStyles.container), { cursor: 'pointer', background: black, border: "1px solid ".concat(hexToRGB('#ffffff', 0.5)), transition: [['background', '300ms'], ['width', '300ms']], '&:hover': {
+                background: shadeColor(black, 0.8)
+            }, '&:active': {
+                boxShadow: "0px 0px 7px 8px ".concat(blackTint)
+            }, '&:focus': {
+                boxShadow: "0px 0px 7px 8px ".concat(blackTint)
+            } }),
+        default_label: {
+            fontSize: typography_scale[3],
+            fontWeight: 'bold',
+            letterSpacing: '0.46px',
+            color: 'white'
+        },
+        success_container: __assign(__assign({}, inputGlobalStyles.container), { cursor: 'pointer', background: black, border: "2px solid ".concat(success), boxShadow: "0px 4px 10px 3px ".concat(successShadow), transition: [['background', '300ms'], ['width', '300ms']], '&:hover': {
+                background: shadeColor(success, 1.2)
+            }, '&:active': {
+                boxShadow: "0px 0px 7px 8px ".concat(successShadow)
+            }, '&:focus': {
+                boxShadow: "0px 0px 7px 8px ".concat(successShadow)
+            } }),
+        success_label: {
+            fontSize: typography_scale[3],
+            fontWeight: 'bold',
+            letterSpacing: '0.46px',
+            color: success
+        },
+        danger_container: __assign(__assign({}, inputGlobalStyles.container), { cursor: 'pointer', background: black, border: "2px solid ".concat(danger), boxShadow: "0px 4px 10px 3px ".concat(dangerShadow), transition: [['background', '300ms'], ['width', '300ms']], '&:hover': {
+                background: shadeColor(danger, 1.2)
+            }, '&:active': {
+                boxShadow: "0px 0px 7px 8px ".concat(dangerShadow)
+            }, '&:focus': {
+                boxShadow: "0px 0px 7px 8px ".concat(dangerShadow)
+            } }),
+        danger_label: {
+            fontSize: typography_scale[3],
+            fontWeight: 'bold',
+            letterSpacing: '0.46px',
+            color: danger
+        }
+    }
+};
+
+export { Button, darkDefault as DarkDefaultTheme, SoraTheme };
