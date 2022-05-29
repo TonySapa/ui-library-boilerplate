@@ -1,4 +1,4 @@
-import { Appearance } from "../_types"
+import { Appearance } from '../_types'
 
 export type ButtonProps = {
   appearance?: Appearance

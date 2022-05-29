@@ -1,5 +1,5 @@
-import { spacing_scale } from "./misc";
-import { fontFamily, typography_base } from "./typography";
+import { spacing_scale } from './misc'
+import { fontFamily, typography_base } from './typography'
 
 export const inputGlobalStyles = {
   container: {

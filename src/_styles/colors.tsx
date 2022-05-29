@@ -1,6 +1,6 @@
 // https://www.figma.com/file/RSwdamseVHwjNhSUeiEKsH/Design-Systems-Generator?node-id=418%3A12
 
-import { Color } from "../_types"
+import { Color } from '../_types'
 
 /******************************************************************************
  * Browser system palette colors
