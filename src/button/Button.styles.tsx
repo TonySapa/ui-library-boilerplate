@@ -4,7 +4,6 @@ import {
   danger,
   inputGlobalStyles,
   primary,
-  red,
   success,
   typography_scale
 } from '../_styles'
@@ -106,4 +105,4 @@ export const styles = {
   }
 }
 
-export const useStyles = createUseStyles(styles)
+export const useStyles = createUseStyles((theme) => ({ ...styles, ...theme }))
