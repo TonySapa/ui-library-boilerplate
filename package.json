@@ -1,21 +1,22 @@
 {
-  "name": "ui-library-boilerplate",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "@tonisanchez.dev/ui-library-boilerplate",
+  "version": "1.0.3",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "repository": "https://github.com/TonySapa/ui-library-boilerplate.git",
   "author": "TonySapa (https://tonisanchez.dev)",
   "license": "MIT",
-  "private": true,
   "sideEffects": false,
   "files": [
-    "commonjs",
-    "esm",
-    "umd",
-    "index.d.ts",
-    "codemods"
+    "dist"
   ],
   "devDependencies": {
+    "@babel/cli": "^7.17.10",
     "@babel/core": "^7.18.2",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-replace": "^4.0.0",
     "@storybook/addon-actions": "^6.5.5",
     "@storybook/addon-essentials": "^6.5.5",
     "@storybook/addon-interactions": "^6.5.5",
@@ -24,13 +25,21 @@
     "@storybook/manager-webpack4": "^6.5.5",
     "@storybook/react": "^6.5.5",
     "@storybook/testing-library": "^0.0.11",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.2.0",
     "@tonisanchez.dev/init-component": "^1.0.3",
+    "@types/jest": "^27.5.1",
+    "@types/react-jss": "^10.0.0",
     "babel-loader": "^8.2.5",
     "rollup": "^2.75.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
     "typescript": "^4.7.2"
   },
   "scripts": {
-    "build-umd": "rollup -c",
+    "build": "rollup -c",
+    "build-watch": "rollup -c -w",
     "component": "node node_modules/@tonisanchez.dev/init-component './src'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -39,9 +48,14 @@
     "node": ">=14"
   },
   "dependencies": {
+    "react-jss": "^10.9.0"
+  },
+  "peerDependencies": {
     "@types/react": "^18.0.9",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-is": "^18.1.0",
     "react-jss": "^10.9.0"
-  }
+  },
+  "types": "dist/index.d.ts"
 }
