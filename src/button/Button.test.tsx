@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Button from './Button'
+import { ThemeProvider } from 'react-jss'
 
 describe('Button', () => {
   test('Renders children text', () => {
@@ -25,5 +26,35 @@ describe('Button', () => {
     render(<Button appearance='danger'>Danger</Button>)
     const DangerButton = screen.getByText(/Danger/i)
     expect(DangerButton.getAttribute('class')).toMatch(/danger/gi)
+  })
+
+  test('Styles are customized if wrapped by theme Provider', () => {
+    const customTheme = {
+      default_container: {
+        background: 'lime',
+        border: 'green',
+        borderRadius: '4px',
+        padding: '20px'
+      },
+      default_label: {
+        color: 'white',
+        fontSize: '20px'
+      }
+    }
+    render(
+      <div style={{ alignItems: 'center', display: 'flex', gap: '20px' }}>
+        <ThemeProvider theme={customTheme}>
+          <Button>Customized</Button>
+        </ThemeProvider>
+        <Button>Default1</Button>
+        <Button>Default2</Button>
+      </div>
+    )
+    const CustomButton = screen.getByText(/Customized/i).getAttribute('class')
+    const Default1 = screen.getByText(/Default1/i).getAttribute('class')
+    const Default2 = screen.getByText(/Default2/i).getAttribute('class')
+    expect(Default1).toMatch(`${Default2}`)
+    expect(CustomButton).not.toMatch(`${Default1}`)
+    expect(CustomButton).not.toMatch(`${Default2}`)
   })
 })
