@@ -5,11 +5,12 @@ import { ButtonProps } from './Button.types'
 
 const Button = ({
   appearance = 'default',
-  children
+  children,
+  onClick
 }: ButtonProps) => {
   const classes = useStyles()
   return (
-    <button className={classes[`${appearance}_container`]}>
+    <button onClick={onClick} className={classes[`${appearance}_container`]}>
       <span className={classes[`${appearance}_label`]}>{children}</span>
     </button>
   )

@@ -2,5 +2,6 @@ import { Appearance } from '../_types'
 
 export type ButtonProps = {
   appearance?: Appearance
-  children: string
+  children: string,
+  onClick?: () => void
 }

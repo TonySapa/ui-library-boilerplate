@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import Button from './Button'
 import { ThemeProvider } from 'react-jss'
 
@@ -8,6 +8,16 @@ describe('Button', () => {
     render(<Button>Hola</Button>)
     const ButtonElement = screen.getByText(/Hola/i)
     expect(ButtonElement).toBeInTheDocument()
+  })
+
+  test('Accepts an `onClick` handler that gets called upon clicking', () => {
+    const handleClick = jest.fn()
+    render(<Button onClick={handleClick}>Click Me</Button>)
+    expect(handleClick).toHaveBeenCalledTimes(0)
+    fireEvent.click(screen.getByText(/click me/i))
+    expect(handleClick).toHaveBeenCalledTimes(1)
+    fireEvent.click(screen.getByText(/click me/i))
+    expect(handleClick).toHaveBeenCalledTimes(2)
   })
 
   test('Button appearance is "default" if not specified', () => {
