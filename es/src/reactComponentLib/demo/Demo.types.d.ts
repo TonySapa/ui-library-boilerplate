@@ -1,3 +1,3 @@
-export declare type DemoProps = {
+export declare type ButtonProps = {
     children: string;
 };
