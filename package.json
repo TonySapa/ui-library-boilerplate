@@ -32,7 +32,13 @@
     "@tonisanchez.dev/init-component": "^1.0.3",
     "@types/jest": "^27.5.1",
     "@types/react-jss": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
     "babel-loader": "^8.2.5",
+    "eslint": "^8.16.0",
+    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "rollup": "^2.75.1",
@@ -42,11 +48,12 @@
     "typescript": "^4.7.2"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "yarn lint && rollup -c",
     "build-watch": "rollup -c -w",
     "component": "node node_modules/@tonisanchez.dev/init-component './src'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "lint": "yarn run eslint --fix . --ext .js,.jsx,ts,tsx",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -65,5 +72,11 @@
     "react-is": "^18.1.0",
     "react-jss": "^10.9.0"
   },
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  }
 }
