@@ -1,7 +1,11 @@
 {
   "name": "@tonisanchez.dev/ui-library-boilerplate",
+<<<<<<< HEAD
   "description": "Boilerplate to start React UI kit libraries built with TypeScript. Assets bundled with Rollup",
   "version": "1.0.3",
+=======
+  "version": "1.0.5",
+>>>>>>> refs/remotes/origin/master
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "repository": "https://github.com/TonySapa/ui-library-boilerplate.git",
@@ -33,9 +37,12 @@
     "@types/jest": "^27.5.1",
     "@types/react-jss": "^10.0.0",
     "babel-loader": "^8.2.5",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "rollup": "^2.75.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.2",
+    "ts-jest": "^28.0.3",
     "typescript": "^4.7.2"
   },
   "scripts": {
@@ -43,7 +50,9 @@
     "build-watch": "rollup -c -w",
     "component": "node node_modules/@tonisanchez.dev/init-component './src'",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "engines": {
     "node": ">=14"
