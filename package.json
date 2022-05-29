@@ -1,5 +1,6 @@
 {
   "name": "@tonisanchez.dev/ui-library-boilerplate",
+  "description": "Boilerplate to start React UI kit libraries built with TypeScript. Assets bundled with Rollup",
   "version": "1.0.3",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
