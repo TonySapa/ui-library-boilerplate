@@ -105,4 +105,4 @@ export const styles = {
   }
 }
 
-export const useStyles = createUseStyles((theme) => ({ ...styles, ...theme }))
+export const useStyles = createUseStyles((theme) => ({ ...styles, ...theme.Button }))
