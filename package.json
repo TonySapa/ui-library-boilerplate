@@ -54,6 +54,7 @@
     "component": "node node_modules/@tonisanchez.dev/init-component './src'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "publish": "yarn remove-builds -- dist es && npm publish publish",
     "publish-pkg": "yarn remove-builds -- dist es && npm publish publish",
     "lint": "yarn run eslint --fix . --ext .js,.jsx,ts,tsx",
     "remove-builds": "node -e \"var fs = require('fs'); process.argv.slice(1).map((fpath) => fs.rmdirSync(fpath, { recursive: true })); process.exit(0);\"",
