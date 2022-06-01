@@ -40,6 +40,7 @@ export const Default = Template.bind({})
 export const Primary = Template.bind({})
 export const Success = Template.bind({})
 export const Danger = Template.bind({})
+export const Disabled = Template.bind({})
 export const CustomButton = Custom.bind({})
 
 Default.args = {
@@ -59,4 +60,10 @@ Success.args = {
 Danger.args = {
   appearance: 'danger',
   children: 'Danger'
+}
+
+Disabled.args = {
+  appearance: 'default',
+  children: 'Disabled',
+  disabled: true
 }

@@ -40,11 +40,11 @@ export const styles = {
     },
     '&:focus': {
       boxShadow: `0px 0px 7px 8px ${blackShadow}`
+    },
+    '& span': {
+      ...commonStyles.label,
+      color: black
     }
-  },
-  default_label: {
-    ...commonStyles.label,
-    color: black,
   },
   primary_container: {
     ...commonStyles.container,
@@ -59,11 +59,11 @@ export const styles = {
     },
     '&:focus': {
       boxShadow: `0px 0px 7px 8px ${primaryShadow}`
+    },
+    '& span': {
+      ...commonStyles.label,
+      color: 'white'  
     }
-  },
-  primary_label: {
-    ...commonStyles.label,
-    color: 'white'
   },
   success_container: {
     ...commonStyles.container,
@@ -78,11 +78,11 @@ export const styles = {
     },
     '&:focus': {
       boxShadow: `0px 0px 7px 8px ${successShadow}`
+    },
+    '& span': {
+      ...commonStyles.label,
+      color: 'white'  
     }
-  },
-  success_label: {
-    ...commonStyles.label,
-    color: 'white'
   },
   danger_container: {
     ...commonStyles.container,
@@ -97,11 +97,11 @@ export const styles = {
     },
     '&:focus': {
       boxShadow: `0px 0px 7px 8px ${dangerShadow}`
+    },
+    '& span': {
+      ...commonStyles.label,
+      color: 'white'  
     }
-  },
-  danger_label: {
-    ...commonStyles.label,
-    color: 'white'
   }
 }
 

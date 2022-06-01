@@ -15,17 +15,17 @@ describe('SoraTheme wrapper', () => {
     render(
       <div style={{ alignItems: 'center', display: 'flex', gap: '20px' }}>
         <SoraTheme theme={darkDefault}>
-          <Button>Customized1</Button>
-          <Button>Customized2</Button>
+          <Button dataTestId='Customized1'>Customized1</Button>
+          <Button dataTestId='Customized2'>Customized2</Button>
         </SoraTheme>
-        <Button>Default1</Button>
-        <Button>Default2</Button>
+        <Button dataTestId='Default1'>Default1</Button>
+        <Button dataTestId='Default2'>Default2</Button>
       </div>
     )
-    const CustomButton = screen.getByText(/Customized1/i).getAttribute('class')
-    const CustomButton2 = screen.getByText(/Customized2/i).getAttribute('class')
-    const Default1 = screen.getByText(/Default1/i).getAttribute('class')
-    const Default2 = screen.getByText(/Default2/i).getAttribute('class')
+    const CustomButton = screen.getByTestId(/Customized1/i).getAttribute('class')
+    const CustomButton2 = screen.getByTestId(/Customized2/i).getAttribute('class')
+    const Default1 = screen.getByTestId(/Default1/i).getAttribute('class')
+    const Default2 = screen.getByTestId(/Default2/i).getAttribute('class')
     expect(CustomButton).toMatch(`${CustomButton2}`)
     expect(Default1).toMatch(`${Default2}`)
     expect(CustomButton).not.toMatch(`${Default1}`)
