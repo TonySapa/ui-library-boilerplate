@@ -23,13 +23,13 @@ const darkDefault = {
       },
       '&:focus': {
         boxShadow: `0px 0px 7px 8px ${blackTint}`
+      },
+      '& span': {
+        fontSize: typography_scale[3],
+        fontWeight: 'bold',
+        letterSpacing: '0.46px',
+        color: 'white'  
       }
-    },
-    default_label: {
-      fontSize: typography_scale[3],
-      fontWeight: 'bold',
-      letterSpacing: '0.46px',
-      color: 'white'
     },
     success_container: {
       ...inputGlobalStyles.container,
@@ -46,13 +46,13 @@ const darkDefault = {
       },
       '&:focus': {
         boxShadow: `0px 0px 7px 8px ${successShadow}`
+      },
+      '& span': {
+        fontSize: typography_scale[3],
+        fontWeight: 'bold',
+        letterSpacing: '0.46px',
+        color: success  
       }
-    },
-    success_label: {
-      fontSize: typography_scale[3],
-      fontWeight: 'bold',
-      letterSpacing: '0.46px',
-      color: success
     },
     danger_container: {
       ...inputGlobalStyles.container,
@@ -69,14 +69,14 @@ const darkDefault = {
       },
       '&:focus': {
         boxShadow: `0px 0px 7px 8px ${dangerShadow}`
-      }
-    },
-    danger_label: {
-      fontSize: typography_scale[3],
-      fontWeight: 'bold',
-      letterSpacing: '0.46px',
-      color: danger
-    }  
+      },
+      '& span': {
+        fontSize: typography_scale[3],
+        fontWeight: 'bold',
+        letterSpacing: '0.46px',
+        color: danger  
+      }  
+    }
   }
 }
 
