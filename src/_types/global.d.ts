@@ -16,13 +16,9 @@ declare global {
     export interface Theme {
       Button: {
         default_container: CSSinJS
-        default_label: CSSinJS
         primary_container: CSSinJS
-        primary_label: CSSinJS
         success_container: CSSinJS
-        success_label: CSSinJS
-        danger_container: CSSinJS,
-        danger_label: CSSinJS
+        danger_container: CSSinJS
       }
     }
   }
